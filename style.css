@@ -1,3 +1,5 @@
+/* abstracts */
+/* base */
 * {
   margin: 0;
   padding: 0;
@@ -10,17 +12,7 @@ h1 {
   font-size: 50px;
 }
 
-button {
-  width: 100px;
-  height: 60px;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 10px;
-  background-color: #32a6f3;
-  border: none;
-  border-radius: 10%;
-}
-
+/* layout */
 header {
   height: 720px;
   max-width: 100vw;
@@ -28,28 +20,6 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-header .title {
-  max-width: 100%;
-  height: 120px;
-}
-header .title h1 {
-  color: #32a6f3;
-  background-color: #43f843;
-  width: 350px;
-  height: 100%;
-  text-align: center;
-  padding: 25px;
-}
-header .image {
-  width: 100%;
-  height: 600px;
-  opacity: 0.4;
-  background-color: rgba(10, 10, 10, 0.3411764706);
-}
-header .image img {
-  width: 100%;
-  height: 100%;
 }
 
 .search form {
@@ -95,5 +65,53 @@ footer span {
   color: #43f843;
   font-size: 26px;
 }
+
+/* componets */
+.title {
+  max-width: 100%;
+  height: 120px;
+}
+.title h1 {
+  color: #32a6f3;
+  background-color: #43f843;
+  width: 350px;
+  height: 100%;
+  text-align: center;
+  padding: 25px;
+}
+
+input {
+  font-size: 30px;
+  width: 600px;
+  height: 40px;
+  padding: 20px;
+  border: none;
+  border-bottom: 3px black solid;
+}
+
+button {
+  width: 100px;
+  height: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #32a6f3;
+  border: none;
+  border-radius: 10%;
+}
+
+.image {
+  width: 100%;
+  height: 600px;
+  opacity: 0.4;
+  background-color: rgba(10, 10, 10, 0.3411764706);
+}
+.image img {
+  width: 100%;
+  height: 100%;
+}
+
+/* pages */
+/* themes */
 
 /*# sourceMappingURL=style.css.map */
