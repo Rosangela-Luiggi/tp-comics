@@ -1,12 +1,13 @@
 .search{
     form{
         margin-top: 60px;
-        padding: 50px;
+        padding: 80px;
         display: flex;
         justify-content: space-between;
         
 
         .container-search{
+            padding: 10px;
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -17,10 +18,9 @@
         }
     
         .filter{
-            padding-top: 20px;
             display: flex;
             gap: 40px;
-            width: 60%;
+            width: 50%;
             h3{
                 font-size: 25px;
             }
