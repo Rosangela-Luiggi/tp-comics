@@ -4,34 +4,5 @@
         padding: 80px;
         display: flex;
         justify-content: space-between;
-        
-
-        .container-search{
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            label{
-                font-size: 25px;
-                font-weight: bold;
-            }
-        }
-    
-        .filter{
-            display: flex;
-            gap: 40px;
-            width: 50%;
-            h3{
-                font-size: 25px;
-            }
-            div{
-                display: flex;
-                gap: 20px;
-
-                select{
-                    border: none;
-                }
-            }
-        }
     }
 }

@@ -1,0 +1,10 @@
+.container-search{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    label{
+        font-size: 25px;
+        font-weight: bold;
+    }
+}

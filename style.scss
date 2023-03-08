@@ -1,5 +1,6 @@
 /* abstracts */
 @import "./sass/abstracts/placeholders";
+@import "./sass/abstracts/variables";
 
 /* base */
 @import "./sass/base/reset";
@@ -8,10 +9,13 @@
 /* layout */
 @import "./sass/layout/header";
 @import "./sass/layout/main";
+@import "./sass/layout/containerFilter";
+@import"./sass/layout/cards";
 @import "./sass/layout/footer";
 
 /* componets */
 @import "./sass/componets/containerTitle";
+@import "./sass/componets/containerSearch";
 @import "./sass/componets/containerResult";
 @import "./sass/componets/inputSearch";
 @import "./sass/componets/button";
