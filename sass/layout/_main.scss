@@ -1,0 +1,37 @@
+.search{
+    form{
+        margin-top: 60px;
+        padding: 50px;
+        display: flex;
+        justify-content: space-between;
+        
+
+        .container-search{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            label{
+                font-size: 25px;
+                font-weight: bold;
+            }
+        }
+    
+        .filter{
+            padding-top: 20px;
+            display: flex;
+            gap: 40px;
+            width: 60%;
+            h3{
+                font-size: 25px;
+            }
+            div{
+                display: flex;
+                gap: 20px;
+
+                select{
+                    border: none;
+                }
+            }
+        }
+    }
+}

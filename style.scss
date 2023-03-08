@@ -1,30 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-header{
-    height: 700px;
-    max-width: 100vw;
-    background-color: #0a0a0a;
-    
-     
-    h1{
-        padding: 25px;
-        color: red;
-        text-align: center;
-        height: 100px;
-    }
+ @import "./sass/base/reset";
+ @import "./sass/base/typography";
+ @import "./sass/layout/header";
+ @import "./sass/layout/main";
+ @import "./sass/layout/footer";
 
-    div{
-        width: 100%;
-        height: 600px;
-        opacity: 0.8;
 
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
-        
-}

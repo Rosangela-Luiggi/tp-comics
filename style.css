@@ -4,25 +4,85 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-family: "Creepster", cursive;
+  font-weight: bold;
+  font-size: 50px;
+}
+
 header {
-  height: 700px;
+  height: 720px;
   max-width: 100vw;
   background-color: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-header h1 {
-  padding: 25px;
-  color: red;
+header .title {
+  max-width: 100%;
+  height: 120px;
+}
+header .title h1 {
+  color: #32a6f3;
+  background-color: #43f843;
+  width: 350px;
+  height: 100%;
   text-align: center;
-  height: 100px;
+  padding: 25px;
 }
-header div {
+header .image {
   width: 100%;
   height: 600px;
-  opacity: 0.8;
+  opacity: 0.4;
+  background-color: rgba(10, 10, 10, 0.3411764706);
 }
-header div img {
+header .image img {
   width: 100%;
   height: 100%;
+}
+
+.search form {
+  margin-top: 60px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.search form .container-search {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.search form .container-search label {
+  font-size: 25px;
+  font-weight: bold;
+}
+.search form .filter {
+  padding-top: 20px;
+  display: flex;
+  gap: 40px;
+  width: 60%;
+}
+.search form .filter h3 {
+  font-size: 25px;
+}
+.search form .filter div {
+  display: flex;
+  gap: 20px;
+}
+.search form .filter div select {
+  border: none;
+}
+
+footer {
+  background-color: black;
+  max-width: 100vw;
+  height: 100px;
+  text-align: center;
+  padding: 30px;
+}
+footer span {
+  color: #43f843;
+  font-size: 26px;
 }
 
 /*# sourceMappingURL=style.css.map */
