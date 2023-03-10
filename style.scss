@@ -1,6 +1,7 @@
 /* abstracts */
-@import "./sass/abstracts/placeholders";
 @import "./sass/abstracts/variables";
+@import "./sass/abstracts/placeholders";
+
 
 /* base */
 @import "./sass/base/reset";
@@ -20,6 +21,7 @@
 @import "./sass/componets/inputSearch";
 @import "./sass/componets/button";
 @import"./sass/componets/containerImage";
+@import "./sass/componets/pName";
 
 /* pages */
 

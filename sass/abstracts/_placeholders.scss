@@ -8,9 +8,9 @@
         font-size: 26px;
     }
     input::placeholder{
-            color: #43f843;
+            color: $color-secundario;
     }
     input:focus{
-        border: 3px #43f843 solid;
+        border: 3px $color-secundario solid;
             }
 }

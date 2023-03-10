@@ -46,14 +46,14 @@
 
                     <div>
                         <h3>Género</h3>
-                        <select name="gender" id="">
+                        <select name="gender" id="select-gender">
                             <option value=""></option>
                             <option value=""></option>
                         </select>
                     </div>
                     <div>
                         <h3>Ubicacion</h3>
-                        <select name="location" id="">
+                        <select name="location" id="select-location">
                             <option value=""></option>
                             <option value=""></option>
                         </select>
@@ -61,14 +61,14 @@
 
                     <div>
                         <h3>Status</h3>
-                        <select name="status" id="">
+                        <select name="status" id="select-status">
                             <option value="vivo">Vivo</option>
                             <option value="muerto">Muerto</option>
                         </select>
                     </div>
                     <div>
                         <h3>Orden</h3>
-                        <select name="status" id="">
+                        <select name="order" id="select-order">
                             <option value="a-z">A/Z</option>
                             <option value="z-a">Z/A</option>
                             <option value="ascendente">Más Viejo</option>
@@ -86,24 +86,31 @@
                 <span>0</span>
             </div>
             <div class="container-cards">
-                <!-- <div class="card">
-                    <img src="" alt="imagen referial">
-                    <p>Nombre:</p>
-                </div> -->
+               
             </div>
             <div class="buttons">
-                <button><i class="fa-solid fa-angles-left"></i></button>
-                <button><i class="fa-solid fa-chevron-left"></i></button>
-                <button><i class="fa-solid fa-chevron-right"></i></button>
-                <button><i class="fa-solid fa-angles-right"></i></button>
+                <button id="first-page"><i class="fa-solid fa-angles-left"></i></button>
+                <button id="page-before"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="next-page"><i class="fa-solid fa-chevron-right"></i></button>
+                <button id="last-page"><i class="fa-solid fa-angles-right"></i></button>
             </div>
+        </section>
+        <section>
+            <div>
+                <img src="" alt="">
+            </div>
+            <div>
+                <p></p>
+            </div>
+
         </section>
 
     </main>
     <footer>
         <span>Hecho por Rosy 👩‍💻</span>
     </footer>
-
+    <!-- conectando con js -->
+    <script src="app.js"></script>
 </body>
 
 </html>
