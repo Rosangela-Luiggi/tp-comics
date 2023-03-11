@@ -6,8 +6,9 @@ const $ = (elemento) => document.querySelector(elemento);
 
 window.addEventListener("load", function () {
     const $containerCards = $(".container-cards");
-    //paginado
+    
     let page = 1;
+    let nameAll = "";
 
     /* let pageTotal =  */
 
@@ -16,6 +17,8 @@ window.addEventListener("load", function () {
     const $filterLocation = $("#select-location");
     const $filterStatus = $("#select-status");
     const $firterOrder = $("#select-order");
+    const $inptSearch = $("#ipt-search");
+    const $btnFilter = $("#btn-search");
 
     //buttons page
     const $btnFirst = $("#first-page");
@@ -28,7 +31,7 @@ window.addEventListener("load", function () {
     /* ----------------------------------------------------Pintar las cards------------------------------------------------------------------- */
 
     const gethApi = (url) => {
-        fetch(`${url}${"/?page=" + page}`)
+        fetch(`${url}${"/?page=" + page}${nameAll}`)
             .then(response => response.json())
             .then(info => {
 
@@ -42,7 +45,6 @@ window.addEventListener("load", function () {
 
     const paintCards = (array) => {
         $containerCards.innerHTML = "";
-        console.log(array.results)
         array.results.forEach(elem => {
             $containerCards.innerHTML += `<div class="card">
             <img src=${elem.image}>
@@ -87,7 +89,7 @@ window.addEventListener("load", function () {
         }
     });
 
-
+// boton de ultima pagina
     $btnLast.addEventListener("click", () => {
         if (page = 42) {
             page = 42;
@@ -95,9 +97,18 @@ window.addEventListener("load", function () {
         }
     });
 
-
-
-
+//filtrado por input
+    $btnFilter.addEventListener("click",()=>{
+        if($inptSearch.value === ""){
+            nameAll = ""
+        }else{
+        nameAll = `&name=${$inptSearch.value.toLowerCase()}`
+        console.log($inptSearch.value)
+        console.log(nameAll)
+        }
+        gethApi("https://rickandmortyapi.com/api/character");
+    })
+    
 
 });
 
