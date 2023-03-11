@@ -1,7 +1,7 @@
 const $ = (elemento) => document.querySelector(elemento);
- /* variables */
-    //cards
-  
+/* variables */
+//cards
+
 
 
 window.addEventListener("load", function () {
@@ -9,36 +9,38 @@ window.addEventListener("load", function () {
     //paginado
     let page = 1;
 
+    /* let pageTotal =  */
+
     //filter
-    const $filterGerder= $("#select-gender");
+    const $filterGerder = $("#select-gender");
     const $filterLocation = $("#select-location");
     const $filterStatus = $("#select-status");
     const $firterOrder = $("#select-order");
 
     //buttons page
-    const $btnFirst= $("#first-page");
+    const $btnFirst = $("#first-page");
     const $btnBefore = $("#page-before");
-    const $btnNext= $("#next-page");
-    const $btnLast= $("#last-page");
-   
-    
+    const $btnNext = $("#next-page");
+    const $btnLast = $("#last-page");
 
-/* ----------------------------------------------------Pintar las cards------------------------------------------------------------------- */
-   
-    const fetchApi = (url)=>{
-        fetch(`${url}${"/?page="+ page}`)
-    .then(response => response.json())
-    .then(info => { 
-       
-        paintCards(info);
-        })
-    .catch (error => console.log(error) )
+
+
+    /* ----------------------------------------------------Pintar las cards------------------------------------------------------------------- */
+
+    const gethApi = (url) => {
+        fetch(`${url}${"/?page=" + page}`)
+            .then(response => response.json())
+            .then(info => {
+
+                paintCards(info);
+            })
+            .catch(error => console.log(error))
     }
 
- 
-    fetchApi("https://rickandmortyapi.com/api/character");
 
-    const  paintCards = (array) => {
+    gethApi("https://rickandmortyapi.com/api/character");
+
+    const paintCards = (array) => {
         $containerCards.innerHTML = "";
         console.log(array.results)
         array.results.forEach(elem => {
@@ -50,53 +52,55 @@ window.addEventListener("load", function () {
             <p><span>Location: <br></span>${elem.location.name}</p>
             <p><span>Status:<br></span>${elem.status}</p></div>
         </div> `
-        }); 
+        });
     }
 
+    /*  let paintResul = ()=>{
+         $("#totalResult").innerText += `${total}`
+ 
+     }
+ paintResul() */
     /* --------------------------------------------------Paginado---------------------------------------------- */
 
-   
-    $btnNext.addEventListener("click",()=>{
-        page = page + 1;
-        fetchApi("https://rickandmortyapi.com/api/character");
+    $btnFirst.addEventListener("click", () => {
+        if (page = 1) {
+            page = 1;
+            gethApi("https://rickandmortyapi.com/api/character");
+        }
+    });
 
+    // boton siguiente
+    $btnNext.addEventListener("click", () => {
+
+        if (page < 42) {
+            page = page + 1;
+            gethApi("https://rickandmortyapi.com/api/character");
+        }
+    });
+
+
+    // boton pag anterior
+    $btnBefore.addEventListener("click", () => {
+        if (page >= 1) {
+            page = page - 1;
+            gethApi("https://rickandmortyapi.com/api/character");
+        }
+    });
+
+
+    $btnLast.addEventListener("click", () => {
+        if (page = 42) {
+            page = 42;
+            gethApi("https://rickandmortyapi.com/api/character");
+        }
     });
 
 
 
 
-   
+
 });
 
 
 
 
-/* const paintCards = (array) => {
-    $containerCards.innerHTML = ""
-    array.forEach(elem => {
-        $containerCards.innerHTML += `<div class="card">
-        <img src=${elem.results.imagen}>
-        <p>${elem.results.name}</p>
-    </div> `
-    }); 
-}
-
-
-
-const loadAPI = async ()=>{
-    try {
-     const response = await fetch("https://rickandmortyapi.com/api/character"); 
-     const info = response.json();
-     console.log(info.results
-        
-        )
-     paintCards(info.results)
-    } catch (error) {
-        console.log(error);
-    }
-    
-    
-}
-
-
-console.log(paintCards(info.results)) */
