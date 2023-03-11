@@ -4,8 +4,13 @@ footer{
     height: 100px;
     text-align: center;
     padding: 40px;
-    span{
+    p{
+        text-shadow: 2px 2px 2px $color-principal;
         color: $color-secundario;
         font-size: 16px;
+        span{
+            text-shadow: none;
+            font-size: 18px;
+        }
     }
 }

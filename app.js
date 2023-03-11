@@ -6,6 +6,8 @@ const $ = (elemento) => document.querySelector(elemento);
 
 window.addEventListener("load", function () {
     const $containerCards = $(".container-cards");
+    //paginado
+    let page = 1;
 
     //filter
     const $filterGerder= $("#select-gender");
@@ -21,24 +23,20 @@ window.addEventListener("load", function () {
    
     
 
-
+/* ----------------------------------------------------Pintar las cards------------------------------------------------------------------- */
    
-    fetch("https://rickandmortyapi.com/api/character")
+    const fetchApi = (url)=>{
+        fetch(`${url}${"/?page="+ page}`)
     .then(response => response.json())
     .then(info => { 
        
         paintCards(info);
         })
     .catch (error => console.log(error) )
+    }
 
-    fetch("https://rickandmortyapi.com/api/character")
-    .then(response => response.json())
-    .then(info => { 
-       
-        paintCards(info);
-        })
-    .catch (error => console.log(error) )
-
+ 
+    fetchApi("https://rickandmortyapi.com/api/character");
 
     const  paintCards = (array) => {
         $containerCards.innerHTML = "";
@@ -49,14 +47,20 @@ window.addEventListener("load", function () {
             <div>
             <p id="name">${elem.name}</p>
             <span>${elem.species}</span>
-            <p><span>Location:</span>${elem.location.name}</p>
-            <p><span>Status:</span>${elem.status}</p></div>
+            <p><span>Location: <br></span>${elem.location.name}</p>
+            <p><span>Status:<br></span>${elem.status}</p></div>
         </div> `
         }); 
     }
 
-   
+    /* --------------------------------------------------Paginado---------------------------------------------- */
 
+   
+    $btnNext.addEventListener("click",()=>{
+        page = page + 1;
+        fetchApi("https://rickandmortyapi.com/api/character");
+
+    });
 
 
 

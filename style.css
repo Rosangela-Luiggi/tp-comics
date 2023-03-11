@@ -76,7 +76,7 @@ main .search form {
   justify-content: space-around;
   align-items: center;
   width: 90%;
-  margin: 5%;
+  margin: 4%;
 }
 .container-cards .card {
   cursor: pointer;
@@ -84,7 +84,7 @@ main .search form {
   height: 30vh;
   background-color: rgba(0, 0, 0, 0.7960784314);
   margin: 25px 10px;
-  width: 40%;
+  width: 35%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -93,19 +93,23 @@ main .search form {
   border-radius: 8px;
 }
 .container-cards .card div {
-  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 25px;
+  width: 55%;
 }
 .container-cards .card img {
   height: 100%;
-  width: 80%;
+  width: 45%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
 .container-cards .card p {
-  font-size: 20px;
+  font-size: 12px;
 }
 .container-cards .card p span {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   color: #32a6f3;
 }
@@ -120,9 +124,14 @@ footer {
   text-align: center;
   padding: 40px;
 }
-footer span {
+footer p {
+  text-shadow: 2px 2px 2px #32a6f3;
   color: #43f843;
   font-size: 16px;
+}
+footer p span {
+  text-shadow: none;
+  font-size: 18px;
 }
 
 /* componets */
@@ -152,7 +161,7 @@ footer span {
 }
 
 .result {
-  margin: 50px;
+  margin: 20px 50px;
   font-weight: bold;
 }
 .result span {
@@ -196,8 +205,9 @@ button {
 
 #name {
   font-size: 25px;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #32a6f3;
+  font-family: "Creepster", cursive;
 }
 
 .buttons {
@@ -209,6 +219,11 @@ button {
   display: flex;
   gap: 5px;
   width: 20%;
+}
+.buttons div button {
+  background-color: black;
+  color: #32a6f3;
+  cursor: pointer;
 }
 
 /* pages */
