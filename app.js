@@ -9,6 +9,7 @@ window.addEventListener("load", function () {
     
     let page = 1;
     let nameAll = "";
+    let garder = "";
 
     /* let pageTotal =  */
 
@@ -31,7 +32,7 @@ window.addEventListener("load", function () {
     /* ----------------------------------------------------Pintar las cards------------------------------------------------------------------- */
 
     const gethApi = (url) => {
-        fetch(`${url}${"/?page=" + page}${nameAll}`)
+        fetch(`${url}${"/?page=" + page}${nameAll}${garder}`)
             .then(response => response.json())
             .then(info => {
 
@@ -107,7 +108,21 @@ window.addEventListener("load", function () {
         console.log(nameAll)
         }
         gethApi("https://rickandmortyapi.com/api/character");
-    })
+    });
+
+//filtrar por genero
+    $filterGerder.addEventListener("blur",()=>{
+        if($filterGerder.value === ""){
+            garder = ""
+        }else{
+        garder = `&gender=${$filterGerder.value.toLowerCase()}`
+        
+       
+        }
+        gethApi("https://rickandmortyapi.com/api/character");
+    });
+
+    
     
 
 });
