@@ -1,19 +1,20 @@
 .filter{
+    margin: 20px;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     width: 55%;
     h3{
-        font-size: 25px;
+        font-size: 18px;
     }
     div{
         display: flex;
-        gap: 35px;
+        gap: 15px;
 
         select{
-            font-size: 20px;
+            font-size: 15px;
             outline: none;
             border: none;
-            width: 90px;
+            width: 50px;
             height: 50px;
         }
     }
