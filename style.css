@@ -50,23 +50,23 @@ main .search form {
 }
 
 .filter {
-  margin: 20px;
+  margin-left: 30px;
   display: flex;
   gap: 20px;
-  width: 55%;
+  width: 65%;
 }
 .filter h3 {
   font-size: 18px;
 }
 .filter div {
   display: flex;
-  gap: 15px;
+  gap: 25px;
 }
 .filter div select {
-  font-size: 15px;
+  font-size: 13px;
   outline: none;
   border: none;
-  width: 50px;
+  width: 55%;
   height: 50px;
 }
 
