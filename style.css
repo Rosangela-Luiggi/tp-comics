@@ -139,6 +139,14 @@ footer p span {
   font-size: 18px;
 }
 
+.container-description {
+  margin: 30px 60px;
+}
+.container-description .card-descrip {
+  display: flex;
+  gap: 50px;
+}
+
 /* componets */
 .title {
   max-width: 100%;
@@ -219,6 +227,7 @@ button {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin: 15px;
 }
 .buttons div {
   display: flex;

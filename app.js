@@ -44,6 +44,8 @@ window.addEventListener("load", function () {
             .then(info => {
 
                 paintCards(info)
+                
+        paintDescription(info)
 
 
             })
@@ -124,6 +126,7 @@ window.addEventListener("load", function () {
             $btnNext.classList.remove("desactived")
             $btnLast.classList.remove("desactived")
         }
+        
     }
 
     //filtrado por input
@@ -184,9 +187,38 @@ window.addEventListener("load", function () {
         gethCharacterApi("https://rickandmortyapi.com/api/character");
     });
 
+const paintDescription = (array)=>{
+    $(".container-description").innerHTML = "";
+        array.results.forEach(elem => {
 
+            $(".container-description").innerHTML = `<div class="card-descrip">   <div class="img-large">
+            <img src="${elem.image}" >
+        </div>
+        <div class="content">
+            <h3>${elem.name}</h3>
+            <p>Status: <span>${elem.status}</span></p>
+            <p>Spacies: <span>${elem.species}</span></p>
+            <p>Gender: <span>${elem.gender}</span></p>
+            <p>Gender: <span>${elem.gender}</span></p>
+            <p>Location: <span>${elem.location.name}</span>
+            <p>Origen: <span>${elem.origin.name}</span></p>
+            <p>Create: <span>${elem.created}</span></p>
+            
+        </div></div> `
 
+        });
+        let $cardAll = document.querySelectorAll(".card");
+        $cardAll.forEach((btnOp) => {
+      btnOp.addEventListener("click", (e) => {
+        array = array.filter((item) => item.id == e.target.id);
+       
+        paintDescription(array)
+      });
+    });
 
+}
+
+    
 
 
 
