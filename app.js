@@ -11,13 +11,14 @@ window.addEventListener("load", function () {
     let nameAll = "";
     let genderAll = "";
     let statusAll = "";
+    let speciesAll ="";
     let type = "character"
 
     /* let pageTotal =  */
 
     //filter
     const $filterGender = $("#select-gender");
-    const $filterType = $("#select-type");
+    const $filterSpecies = $("#select-species");
     const $filterStatus = $("#select-status");
     const $firterOrder = $("#select-order");
     const $inptSearch = $("#ipt-search");
@@ -33,11 +34,12 @@ window.addEventListener("load", function () {
 
     /* ----------------------------------------------------Pintar las cards------------------------------------------------------------------- */
 
-    const gethApi = (url) => {
-        fetch(`${url}${type}${"/?page=" + page}${nameAll}${genderAll}${statusAll}`)
+    const gethCharacterApi = (url) => {
+        fetch(`${url}${"/?page=" + page}${nameAll}${genderAll}${statusAll}${speciesAll
+        
+        }`)
             .then(response => response.json())
             .then(info => {
-
                 paintCards(info);
 
 
@@ -46,43 +48,36 @@ window.addEventListener("load", function () {
     }
 
 
-    gethApi("https://rickandmortyapi.com/api/");
+    gethCharacterApi("https://rickandmortyapi.com/api/character");
 
 
 
     const paintCards = (array) => {
         $containerCards.innerHTML = "";
         array.results.forEach(elem => {
-            if(type = "location"){
-                $containerCards.innerHTML += `<div class="card">
-            <img src=${elem.residents.image}>
+           
+            $containerCards.innerHTML += `<div class="card">
+            <img src=${elem.image}>
             <div>
             <p id="name">${elem.name}</p>
-            <span>${elem.type}</span>
-            <p><span>Dimensión:<br></span>${elem.dimension}</p></div>
+             <p><span>Location: <br></span>${elem.location.name}</p>
+            <p><span>Status:<br></span> ${elem.status}</p></div> 
         </div> `
-            }else{
-                $containerCards.innerHTML += `<div class="card">
-                <img src=${elem.image}>
-                <div>
-                <p id="name">${elem.name}</p>
-                <p><span>Status:<br></span>${elem.status}</p></div>
-            </div> `
-            }
-           
+       
         });
     }
 
 //
+           
 
 
     /* --------------------------------------------------Paginado---------------------------------------------- */
 
     $btnFirst.addEventListener("click", () => {
-        if (page = 1) {
+        
             page = 1;
-            gethApi("https://rickandmortyapi.com/api/");
-        }
+            gethCharacterApi("https://rickandmortyapi.com/api/character");
+        
     });
 
     // boton siguiente
@@ -90,7 +85,7 @@ window.addEventListener("load", function () {
 
         if (page < 42) {
             page = page + 1;
-            gethApi("https://rickandmortyapi.com/api/character");
+            gethCharacterApi("https://rickandmortyapi.com/api/character");
         }
     });
 
@@ -99,7 +94,7 @@ window.addEventListener("load", function () {
     $btnBefore.addEventListener("click", () => {
         if (page >= 1) {
             page = page - 1;
-            gethApi("https://rickandmortyapi.com/api/character");
+            gethCharacterApi("https://rickandmortyapi.com/api/character");
         }
     });
 
@@ -107,19 +102,13 @@ window.addEventListener("load", function () {
     $btnLast.addEventListener("click", () => {
         if (page = 42) {
             page = 42;
-            gethApi("https://rickandmortyapi.com/api/character");
+            gethCharacterApi("https://rickandmortyapi.com/api/character");
         }
     });
 
     //filtrado por input
     $btnFilter.addEventListener("click", () => {
-        if ($filterType.value === "character") {
-            type = "character"
-        } else {
-            type = "location"
-
-        }
-
+        
         if ($inptSearch.value === "") {
             nameAll = ""
         } else {
@@ -127,7 +116,7 @@ window.addEventListener("load", function () {
             console.log($inptSearch.value)
             console.log(nameAll)
         }
-        gethApi("https://rickandmortyapi.com/api/");
+        gethCharacterApi("https://rickandmortyapi.com/api/character");
     });
 
     //filtrar por genero
@@ -139,7 +128,7 @@ window.addEventListener("load", function () {
 
 
         }
-        gethApi("https://rickandmortyapi.com/api/");
+        gethCharacterApi("https://rickandmortyapi.com/api/character");
     });
 
     //filtrado por status
@@ -150,21 +139,27 @@ window.addEventListener("load", function () {
             statusAll = `&status=${$filterStatus.value.toLowerCase()}`
 
         }
-        gethApi("https://rickandmortyapi.com/api/");
+        gethCharacterApi("https://rickandmortyapi.com/api/character");
 
     });
 
-    /* ----------------------------------------------------filtro type----------------------------------------------------------- */
-    /*   $filterType.addEventListener("click", () => {
-          if ($filterType.value === "location") {
-              
-          }if($filterType.value === "character"){
-              
-              gethApi("https://rickandmortyapi.com/api/")
-              console.log($filterType.value)
-          }
-      }) */
 
+// filtrar por especie
+    
+    $filterSpecies.addEventListener("click", () => {
+        if ($filterSpecies.value === "") {
+            speciesAll = ""
+        } else {
+            speciesAll= `&species=${$filterSpecies.value.toLowerCase()}`
+            console.log(speciesAll)
+            
+
+        }
+        gethCharacterApi("https://rickandmortyapi.com/api/character");
+        console.log(gethCharacterApi("https://rickandmortyapi.com/api/character"))
+       
+
+    });
 
 });
 
