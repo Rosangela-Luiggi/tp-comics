@@ -15,6 +15,11 @@
   border: 3px #43f843 solid;
 }
 
+.desactived {
+  color: rgba(128, 128, 128, 0.4392156863);
+  background-color: rgba(46, 43, 43, 0.3764705882);
+}
+
 /* base */
 * {
   margin: 0;
@@ -76,7 +81,7 @@ main .search form {
   justify-content: space-around;
   align-items: center;
   width: 90%;
-  margin: 4%;
+  margin: 5%;
 }
 .container-cards .card {
   cursor: pointer;
@@ -225,8 +230,5 @@ button {
   color: #32a6f3;
   cursor: pointer;
 }
-
-/* pages */
-/* themes */
 
 /*# sourceMappingURL=style.css.map */
