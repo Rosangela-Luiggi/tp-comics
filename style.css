@@ -216,7 +216,7 @@ button {
   height: 100%;
 }
 
-#name {
+.name {
   font-size: 25px;
   /* font-weight: bold; */
   color: #32a6f3;

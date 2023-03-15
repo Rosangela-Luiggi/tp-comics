@@ -12,12 +12,12 @@ window.addEventListener("load", function () {
     let genderAll = "";
     let statusAll = "";
     let speciesAll = "";
-    let total;
+    
 
 
-    /* let pageTotal =  */
+        /* let pageTotal =  */
 
-    //filter
+        //filter
     const $filterGender = $("#select-gender");
     const $filterSpecies = $("#select-species");
     const $filterStatus = $("#select-status");
@@ -44,8 +44,8 @@ window.addEventListener("load", function () {
             .then(info => {
 
                 paintCards(info)
-                
-        paintDescription(info)
+
+                paintDescription(info)
 
 
             })
@@ -61,20 +61,20 @@ window.addEventListener("load", function () {
         $containerCards.innerHTML = "";
         array.results.forEach(elem => {
 
-            $containerCards.innerHTML += `<div class="card">
+            $containerCards.innerHTML += `<div class="card" id=${elem.id}>
             <img src=${elem.image}>
             <div>
-            <p id="name">${elem.name}</p>
+            <p class="name">${elem.name}</p>
              <p><span>Location: <br></span>${elem.location.name}</p>
             <p><span>Status:<br></span> ${elem.status}</p></div> 
         </div> `
 
         });
         $("#totalResult").innerText = array.info.count
-        
+
     }
 
-   
+
     /* --------------------------------------------------Paginado---------------------------------------------- */
 
     $btnFirst.addEventListener("click", () => {
@@ -126,7 +126,7 @@ window.addEventListener("load", function () {
             $btnNext.classList.remove("desactived")
             $btnLast.classList.remove("desactived")
         }
-        
+
     }
 
     //filtrado por input
@@ -187,14 +187,14 @@ window.addEventListener("load", function () {
         gethCharacterApi("https://rickandmortyapi.com/api/character");
     });
 
-const paintDescription = (array)=>{
-    $(".container-description").innerHTML = "";
+    const paintDescription = (array) => {
+        $(".container-description").innerHTML = "";
         array.results.forEach(elem => {
 
             $(".container-description").innerHTML = `<div class="card-descrip">   <div class="img-large">
             <img src="${elem.image}" >
-        </div>
-        <div class="content">
+         </div>
+            <div class="content">
             <h3>${elem.name}</h3>
             <p>Status: <span>${elem.status}</span></p>
             <p>Spacies: <span>${elem.species}</span></p>
@@ -204,19 +204,32 @@ const paintDescription = (array)=>{
             <p>Origen: <span>${elem.origin.name}</span></p>
             <p>Create: <span>${elem.created}</span></p>
             
-        </div></div> `
+            </div></div> `
 
         });
-        let $cardAll = document.querySelectorAll(".card");
-        $cardAll.forEach((btnOp) => {
-      btnOp.addEventListener("click", (e) => {
-        array = array.filter((item) => item.id == e.target.id);
-       
-        paintDescription(array)
-      });
-    });
+const description =[]
 
-}
+        let $cardAll = document.querySelectorAll(".card");
+        console.log($cardAll)
+        $cardAll.forEach((card) => {
+            card.addEventListener("click", (e) => {
+
+                let chosenCard = array.results.find((item) => item.id === Number(e.target.id));
+                
+                paintDescription(chosenCard)
+                (paintDescription(chosenCard))
+
+                console.log("hola", e.target.id)
+            });
+        });
+
+    }
+
+
+   
+
+        
+
 
     
 
