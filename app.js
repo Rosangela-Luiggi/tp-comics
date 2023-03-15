@@ -217,6 +217,10 @@ const description =[]
                 let chosenCard = array.results.find((item) => item.id === Number(e.target.id));
                 
                 paintDescription(chosenCard)
+                
+                
+                
+                
                 (paintDescription(chosenCard))
 
                 console.log("hola", e.target.id)
