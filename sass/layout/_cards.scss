@@ -22,6 +22,7 @@
         
 
         div{
+            pointer-events: none;
             display: flex;
             flex-direction: column;
             gap: 5px;
@@ -30,6 +31,7 @@
         }
 
         img {
+            pointer-events: none;
             height: 100%;
             width: 45%;
             border-top-left-radius: 8px;
