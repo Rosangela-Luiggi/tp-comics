@@ -9,7 +9,7 @@ window.addEventListener("load", function () {
     let genderAll = "";
     let statusAll = "";
     let speciesAll = "";
-    let allCharacters = "";
+    let pageTotal;
 
     /* let pageTotal =  */
 
@@ -38,8 +38,7 @@ window.addEventListener("load", function () {
         fetch(`${url}${"/?page=" + page}${nameAll}${genderAll}${statusAll}${speciesAll}`)
             .then(response => response.json())
             .then(info => {
-
-                /* Una vez con la info, pinto la lista */
+                pageTotal = info.info.pages;
                 paintCards(info)
             })
             .catch(error => console.log(error))
@@ -90,7 +89,7 @@ window.addEventListener("load", function () {
     // boton siguiente
     $btnNext.addEventListener("click", () => {
 
-        if (page < 42) {
+        if (page < pageTotal) {
             page = page + 1;
             gethCharacterApi("https://rickandmortyapi.com/api/character");
         }
@@ -106,8 +105,8 @@ window.addEventListener("load", function () {
 
     // boton de ultima pagina
     $btnLast.addEventListener("click", () => {
-        if (page = 42) {
-            page = 42;
+        if (page = pageTotal) {
+            page = pageTotal;
             gethCharacterApi("https://rickandmortyapi.com/api/character");
         }
     });
@@ -123,7 +122,7 @@ window.addEventListener("load", function () {
             $btnFirst.classList.remove("desactived")
         }
 
-        if (page + 1 >= 42) {
+        if (page + 1 >= pageTotal) {
             $btnNext.classList.add("desactived")
             $btnLast.classList.add("desactived")
         } else {
@@ -132,7 +131,6 @@ window.addEventListener("load", function () {
         }
 
     }
-
 
     /* filtrado por input */
     $btnFilter.addEventListener("click", () => {
