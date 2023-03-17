@@ -3,10 +3,11 @@
     display: flex;
     gap: 20px;
     width: 65%;
+
     @include small {
         flex-direction: column;
     }
-    
+
 
     h3 {
         font-size: 18px;

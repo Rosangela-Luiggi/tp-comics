@@ -42,7 +42,7 @@ window.addEventListener("load", function () {
                 paintCards(info);
             })
 
-        .catch(error => console.log(error));
+            .catch(error => console.log(error));
     }
 
     /* Ejecuto el get */

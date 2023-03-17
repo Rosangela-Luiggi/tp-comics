@@ -12,7 +12,6 @@
 
     }
 
-
     .card {
         cursor: pointer;
         box-shadow: 0 0 13px #00000060;
@@ -41,10 +40,11 @@
             gap: 5px;
             margin: 25px;
             width: 55%;
+
             @include small {
                 width: 40%;
             }
-    
+
         }
 
         img {
@@ -53,14 +53,15 @@
             width: 45%;
             border-top-left-radius: 8px;
             border-bottom-left-radius: 8px;
+
             @include small {
-               
-    
+
+
                 width: 60%;
-               
-    
+
+
             }
-    
+
         }
 
         p {
