@@ -183,7 +183,7 @@ window.addEventListener("load", function () {
 
     /* filtrado por input */
     $btnFilter.addEventListener("click", () => {
-
+        $containerCards.innerHTML = "";
         $(".container-description").innerHTML = "";
         if ($inptSearch.value === "") {
             nameAll = ""
@@ -196,7 +196,7 @@ window.addEventListener("load", function () {
 
 
     /* filtrar por genero */
-    $filterGender.addEventListener("blur", () => {
+    $filterGender.addEventListener("click", () => {
         if ($filterGender.value === "") {
             genderAll = ""
         } else {
