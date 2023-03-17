@@ -58,6 +58,12 @@ main .search form {
     flex-direction: column;
   }
 }
+@media only screen and (max-width: 1024px) {
+  main .search form {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
 
 .filter {
   margin-left: 30px;

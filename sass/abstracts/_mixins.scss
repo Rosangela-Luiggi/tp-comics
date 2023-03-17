@@ -10,8 +10,3 @@
     }
 }
 
-@mixin large {
-    @media only screen and (max-width: 1440px) {
-        @content;
-    }
-}

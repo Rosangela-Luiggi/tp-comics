@@ -6,11 +6,7 @@
     @include small {
         flex-direction: column;
     }
-    @include medium {
-        flex-direction: column;
-    }
-
-
+    
 
     h3 {
         font-size: 18px;

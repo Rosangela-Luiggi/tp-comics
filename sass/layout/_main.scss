@@ -11,6 +11,11 @@ main {
             @include small {
                 flex-direction: column;
             }
+
+            @include medium {
+                flex-direction: column;
+                padding: 20px;
+            }
         }
     }
 }
