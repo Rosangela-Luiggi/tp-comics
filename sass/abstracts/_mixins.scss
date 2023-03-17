@@ -5,13 +5,13 @@
 }
 
 @mixin medium {
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (max-width: 1024px) {
         @content;
     }
 }
 
 @mixin large {
-    @media only screen and (min-width: 1440px) {
+    @media only screen and (max-width: 1440px) {
         @content;
     }
 }

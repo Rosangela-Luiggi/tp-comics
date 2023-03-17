@@ -6,6 +6,9 @@
     @include small {
         flex-direction: column;
     }
+    @include medium {
+        flex-direction: column;
+    }
 
 
 
@@ -27,6 +30,7 @@
             border: none;
             width: 55%;
             height: 50px;
+            background-color: transparent;
 
             @include small {
                 width: 35%;

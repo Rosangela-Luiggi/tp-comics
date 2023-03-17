@@ -97,13 +97,13 @@ window.addEventListener("load", function () {
     `
         /* cambia el color segun status */
         if (obj.status === "Alive") {
-            $("#text-status").style.color = "green";
+            $("#text-status").style.color = "#0be453";
             $("#text-status").style.fontWeight = "bold";
         } else if (obj.status === "Dead") {
-            $("#text-status").style.color = "red";
+            $("#text-status").style.color = "#ff0000";
             $("#text-status").style.fontWeight = "bold";
         } else {
-            $("#text-status").style.color = "blue";
+            $("#text-status").style.color = "#0000ff";
             $("#text-status").style.fontWeight = "bold";
         }
     }
