@@ -1,4 +1,4 @@
-button{
+button {
     width: 65px;
     height: 35px;
     font-size: 12px;
@@ -7,4 +7,11 @@ button{
     background-color: $color-principal;
     border: none;
     border-radius: 10%;
+
+    @include small {
+        width: 45px;
+        height: 25px;
+        font-size: 10px;
+        padding: 3px;
+    }
 }

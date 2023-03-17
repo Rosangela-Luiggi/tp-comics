@@ -1,11 +1,17 @@
-.container-search{
+.container-search {
     padding: 10px;
     display: flex;
     flex-direction: column;
     position: relative;
-    label{
+
+    label {
         font-size: 25px;
         font-weight: bold;
         padding: 10px;
+
+        @include small {
+            font-size: 20px;
+
+        }
     }
 }

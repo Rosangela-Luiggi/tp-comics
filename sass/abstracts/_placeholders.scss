@@ -1,16 +1,18 @@
-.container-search{
+.container-search {
     position: relative;
 
-    i{
+    i {
         position: absolute;
         left: 35px;
         top: 75px;
         font-size: 20px;
     }
-    input::placeholder{
-            color: $color-secundario;
+
+    input::placeholder {
+        color: $color-secundario;
     }
-    input:focus{
+
+    input:focus {
         border: 3px $color-secundario solid;
-            }
+    }
 }

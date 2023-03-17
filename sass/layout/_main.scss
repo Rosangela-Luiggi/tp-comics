@@ -1,12 +1,16 @@
-main{
-   
-    .search{
-        form{
+main {
+
+
+    .search {
+        form {
             margin-top: 40px;
             padding: 40px;
             display: flex;
             justify-content: space-between;
+
+            @include small {
+                flex-direction: column;
+            }
         }
     }
 }
-

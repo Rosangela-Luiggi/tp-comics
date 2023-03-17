@@ -1,7 +1,10 @@
-#name-card{
+#name-card {
     font-size: 25px;
-    
     color: $color-principal;
     font-family: 'Creepster', cursive;
-    
+
+    @include small {
+        font-size: 16px;
+    }
+
 }

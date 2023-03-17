@@ -1,21 +1,37 @@
-.filter{
+.filter {
     margin-left: 30px;
     display: flex;
     gap: 20px;
     width: 65%;
-    h3{
-        font-size: 18px;
+    @include small {
+        flex-direction: column;
     }
-    div{
+
+
+
+    h3 {
+        font-size: 18px;
+
+        @include small {
+            font-size: 12px;
+        }
+    }
+
+    div {
         display: flex;
         gap: 25px;
 
-        select{
+        select {
             font-size: 13px;
             outline: none;
             border: none;
             width: 55%;
             height: 50px;
+
+            @include small {
+                width: 35%;
+                font-size: 10px;
+            }
         }
     }
 }

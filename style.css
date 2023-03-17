@@ -41,12 +41,22 @@ header {
   flex-direction: column;
   align-items: center;
 }
+@media only screen and (max-width: 700px) {
+  header {
+    height: 310px;
+  }
+}
 
 main .search form {
   margin-top: 40px;
   padding: 40px;
   display: flex;
   justify-content: space-between;
+}
+@media only screen and (max-width: 700px) {
+  main .search form {
+    flex-direction: column;
+  }
 }
 
 .filter {
@@ -55,8 +65,18 @@ main .search form {
   gap: 20px;
   width: 65%;
 }
+@media only screen and (max-width: 700px) {
+  .filter {
+    flex-direction: column;
+  }
+}
 .filter h3 {
   font-size: 18px;
+}
+@media only screen and (max-width: 700px) {
+  .filter h3 {
+    font-size: 12px;
+  }
 }
 .filter div {
   display: flex;
@@ -69,14 +89,26 @@ main .search form {
   width: 55%;
   height: 50px;
 }
+@media only screen and (max-width: 700px) {
+  .filter div select {
+    width: 35%;
+    font-size: 10px;
+  }
+}
 
 .container-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  width: 90%;
-  margin: 5%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  width: 80%;
+  margin: 4% 12%;
+}
+@media only screen and (max-width: 700px) {
+  .container-cards {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
 }
 .container-cards .card {
   cursor: pointer;
@@ -84,13 +116,20 @@ main .search form {
   height: 30vh;
   background-color: rgba(0, 0, 0, 0.7960784314);
   margin: 25px 10px;
-  width: 35%;
+  width: 80%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   color: white;
   transition: all 0.4s ease-in-out;
   border-radius: 8px;
+}
+@media only screen and (max-width: 700px) {
+  .container-cards .card {
+    grid-template-columns: repeat(1, 1fr);
+    width: 60%;
+    margin: 20px 10%;
+  }
 }
 .container-cards .card div {
   pointer-events: none;
@@ -100,12 +139,22 @@ main .search form {
   margin: 25px;
   width: 55%;
 }
+@media only screen and (max-width: 700px) {
+  .container-cards .card div {
+    width: 40%;
+  }
+}
 .container-cards .card img {
   pointer-events: none;
   height: 100%;
   width: 45%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+}
+@media only screen and (max-width: 700px) {
+  .container-cards .card img {
+    width: 60%;
+  }
 }
 .container-cards .card p {
   font-size: 12px;
@@ -114,6 +163,11 @@ main .search form {
   font-size: 15px;
   font-weight: bold;
   color: #32a6f3;
+}
+@media only screen and (max-width: 700px) {
+  .container-cards .card p span {
+    font-size: 13px;
+  }
 }
 .container-cards .card:hover {
   transform: scale(1.05);
@@ -126,14 +180,30 @@ footer {
   text-align: center;
   padding: 40px;
 }
+@media only screen and (max-width: 700px) {
+  footer {
+    height: 45px;
+    padding: 20px;
+  }
+}
 footer p {
   text-shadow: 2px 2px 2px #32a6f3;
   color: #43f843;
   font-size: 16px;
 }
+@media only screen and (max-width: 700px) {
+  footer p {
+    font-size: 12px;
+  }
+}
 footer p span {
   text-shadow: none;
   font-size: 18px;
+}
+@media only screen and (max-width: 700px) {
+  footer p span {
+    font-size: 10px;
+  }
 }
 
 .container-description {
@@ -145,7 +215,7 @@ footer p span {
 }
 
 .buttons {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   margin: 15px;
@@ -166,6 +236,12 @@ footer p span {
   max-width: 100%;
   height: 80px;
 }
+@media only screen and (max-width: 700px) {
+  .title {
+    grid-template-columns: repeat(1, 1fr);
+    height: 60px;
+  }
+}
 .title h1 {
   color: #32a6f3;
   background-color: #43f843;
@@ -173,6 +249,12 @@ footer p span {
   height: 100%;
   text-align: center;
   padding: 20px;
+}
+@media only screen and (max-width: 700px) {
+  .title h1 {
+    font-size: 30px;
+    padding: 15px;
+  }
 }
 
 .container-search {
@@ -186,15 +268,32 @@ footer p span {
   font-weight: bold;
   padding: 10px;
 }
+@media only screen and (max-width: 700px) {
+  .container-search label {
+    font-size: 20px;
+  }
+}
 
 .result {
   margin: 20px 50px;
   font-weight: bold;
+  font-size: 16px;
+}
+@media only screen and (max-width: 700px) {
+  .result {
+    font-size: 13px;
+  }
 }
 .result span {
   color: #43f843;
   font-weight: bold;
   padding: 20px;
+  font-size: 20px;
+}
+@media only screen and (max-width: 700px) {
+  .result span {
+    font-size: 13px;
+  }
 }
 
 input {
@@ -207,6 +306,13 @@ input {
   border-bottom: 3px black solid;
   outline: none;
 }
+@media only screen and (max-width: 700px) {
+  input {
+    font-size: 15px;
+    border-bottom: 2px black solid;
+    width: 250px;
+  }
+}
 
 button {
   width: 65px;
@@ -218,12 +324,25 @@ button {
   border: none;
   border-radius: 10%;
 }
+@media only screen and (max-width: 700px) {
+  button {
+    width: 45px;
+    height: 25px;
+    font-size: 10px;
+    padding: 3px;
+  }
+}
 
 .image {
   width: 100%;
   height: 350px;
   opacity: 0.6;
   background-color: rgba(10, 10, 10, 0.3411764706);
+}
+@media only screen and (max-width: 700px) {
+  .image {
+    height: 250px;
+  }
 }
 .image img {
   width: 100%;
@@ -234,6 +353,11 @@ button {
   font-size: 25px;
   color: #32a6f3;
   font-family: "Creepster", cursive;
+}
+@media only screen and (max-width: 700px) {
+  #name-card {
+    font-size: 16px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

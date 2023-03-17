@@ -1,33 +1,50 @@
 .container-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 90%;
-    margin: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 80%;
+    margin: 4% 12%;
+
+    @include small {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        width: 100%;
+
+    }
+
 
     .card {
         cursor: pointer;
-        box-shadow:  0 0 13px #00000060;
+        box-shadow: 0 0 13px #00000060;
         height: 30vh;
         background-color: #000000cb;
         margin: 25px 10px;
-        width: 35%;
+        width: 80%;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         color: white;
         transition: all 0.4s ease-in-out;
         border-radius: 8px;
-        
 
-        div{
+        @include small {
+            grid-template-columns: repeat(1, 1fr);
+            width: 60%;
+            margin: 20px 10%;
+
+        }
+
+        div {
             pointer-events: none;
             display: flex;
             flex-direction: column;
             gap: 5px;
             margin: 25px;
             width: 55%;
+            @include small {
+                width: 40%;
+            }
+    
         }
 
         img {
@@ -35,16 +52,29 @@
             height: 100%;
             width: 45%;
             border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px ;
+            border-bottom-left-radius: 8px;
+            @include small {
+               
+    
+                width: 60%;
+               
+    
+            }
+    
         }
 
         p {
             font-size: 12px;
-            
-            span{
+
+
+            span {
                 font-size: 15px;
                 font-weight: bold;
                 color: $color-principal;
+
+                @include small {
+                    font-size: 13px;
+                }
 
             }
         }
