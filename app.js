@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
 
 
     /* ----------------------------------------------------Pintar las cards------------------------------------------------------------------- */
-
+    /* funcion para fetch */
     const gethCharacterApi = (url) => {
 
         buttonsPagControl()
@@ -39,9 +39,10 @@ window.addEventListener("load", function () {
             .then(response => response.json())
             .then(info => {
                 pageTotal = info.info.pages;
-                paintCards(info)
+                paintCards(info);
             })
-            .catch(error => console.log(error))
+
+        .catch(error => console.log(error));
     }
 
     /* Ejecuto el get */
@@ -67,24 +68,68 @@ window.addEventListener("load", function () {
         });
         $("#totalResult").innerText = array.info.count;
 
-        /* Una vez generadas todas las cards, agrego los eventos click que le corresponde a cada una,
-        Le paso el array de personajes */
         addClick(array)
     }
 
 
 
 
+    /* Pinto descripcion*/
+    const paintDescription = (obj) => {
 
-    /* --------------------------------------------------Paginado---------------------------------------------- */
+        $(".container-description").innerHTML = "";
+
+        $(".container-description").innerHTML = `
+        <div class="card-descrip">
+            <div class="img-large">
+                <img src="${obj.image}" >
+            </div>
+            <div class="content">
+                <h3>${obj.name}</h3>
+                <p>Status: <span id ="text-status">${obj.status}</span></p>
+                <p>Spacies: <span>${obj.species}</span></p>
+                <p>Gender: <span>${obj.gender}</span></p>
+                <p>Location: <span>${obj.location.name}</span>
+                <p>Origen: <span>${obj.origin.name}</span></p>
+                <p>Create: <span>${obj.created}</span></p>
+            </div>
+        </div> 
+    `
+        /* cambia el color segun status */
+        if (obj.status === "Alive") {
+            $("#text-status").style.color = "green";
+            $("#text-status").style.fontWeight = "bold";
+        } else if (obj.status === "Dead") {
+            $("#text-status").style.color = "red";
+            $("#text-status").style.fontWeight = "bold";
+        } else {
+            $("#text-status").style.color = "blue";
+            $("#text-status").style.fontWeight = "bold";
+        }
+    }
+
+    /* Agrega el evento click para mostrar el detalle de cada card */
+    const addClick = (array) => {
+        let $cardAll = document.querySelectorAll(".card");
+        console.log($cardAll)
+        $cardAll.forEach((card) => {
+            card.addEventListener("click", (e) => {
+                console.log(e)
+                let chosenCard = array.results.find((item) => item.id === Number(e.target.id));
+                paintDescription(chosenCard)
+            });
+        });
+
+
+    }
+    /* -------------------------------------------------- Todo Paginado---------------------------------------------- */
 
     // Boton primera pagina
     $btnFirst.addEventListener("click", () => {
         page = 1;
         gethCharacterApi("https://rickandmortyapi.com/api/character");
-       
-
     });
+
 
     // boton siguiente
     $btnNext.addEventListener("click", () => {
@@ -95,6 +140,7 @@ window.addEventListener("load", function () {
         }
     });
 
+
     // boton pag anterior
     $btnBefore.addEventListener("click", () => {
         if (page >= 1) {
@@ -102,6 +148,7 @@ window.addEventListener("load", function () {
             gethCharacterApi("https://rickandmortyapi.com/api/character");
         }
     });
+
 
     // boton de ultima pagina
     $btnLast.addEventListener("click", () => {
@@ -132,8 +179,11 @@ window.addEventListener("load", function () {
 
     }
 
+    /* ------------------------------------------------Todo filtrado------------------------------------------------------ */
+
     /* filtrado por input */
     $btnFilter.addEventListener("click", () => {
+
         $(".container-description").innerHTML = "";
         if ($inptSearch.value === "") {
             nameAll = ""
@@ -184,50 +234,3 @@ window.addEventListener("load", function () {
 
 
 });
-/* Pinto descripcion, recibe un objeto despues de hacer el find */
-const paintDescription = (obj) => {
-    /* Vacia el .container-description */
-    $(".container-description").innerHTML = "";
-
-    /* Pinta el .container-description */
-    $(".container-description").innerHTML = `
-        <div class="card-descrip">
-            <div class="img-large">
-                <img src="${obj.image}" >
-            </div>
-            <div class="content">
-                <h3>${obj.name}</h3>
-                <p>Status: <span id ="text-status">${obj.status}</span></p>
-                <p>Spacies: <span>${obj.species}</span></p>
-                <p>Gender: <span>${obj.gender}</span></p>
-                <p>Location: <span>${obj.location.name}</span>
-                <p>Origen: <span>${obj.origin.name}</span></p>
-                <p>Create: <span>${obj.created}</span></p>
-            </div>
-        </div> 
-    `
-  
-    if(obj.status === "Alive"){
-        $("#text-status").style.color = "green";
-        $("#text-status").style.fontWeight="bold";
-    }else if(obj.status === "Dead"){
-        $("#text-status").style.color = "red";
-        $("#text-status").style.fontWeight="bold";
-    }else{
-        $("#text-status").style.color = "blue";
-        $("#text-status").style.fontWeight="bold";
-    }
-}
-
-/* Agrega el evento click para mostrar el detalle de cada card */
-const addClick = (array) => {
-    let $cardAll = document.querySelectorAll(".card");
-    console.log($cardAll)
-    $cardAll.forEach((card) => {
-        card.addEventListener("click", (e) => {
-            console.log(e)
-            let chosenCard = array.results.find((item) => item.id === Number(e.target.id));
-            paintDescription(chosenCard)
-        });
-    });
-}
